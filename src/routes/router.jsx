@@ -7,9 +7,9 @@ import { ProtectedRoutes } from "../components/ProtectedRoutes";
 export const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterForm />} />
-      <Route path="/dashboard" element={<ProtectedRoutes />}>
+      <Route path="/" element={<ProtectedRoutes />}>
             <Route index element={<Dashboard/>}/>
       </Route>
     </Routes>
