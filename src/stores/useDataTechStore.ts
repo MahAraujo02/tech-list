@@ -73,7 +73,6 @@ export const useDataTechStore = create<AuthState>((set) => ({
 
   addTech: async (dataForm) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN") || "null");
-
     try {
       const response = await api.post<ITechs>("users/techs", dataForm, {
         headers: {
@@ -83,7 +82,6 @@ export const useDataTechStore = create<AuthState>((set) => ({
       set((state) => ({
         techsData: [...state.techsData, response.data],
       }));
-
       console.log("Tecnologia adicionada com sucesso!");
     } catch (error) {
       console.error("Erro ao adicionar tecnologia:", error);
