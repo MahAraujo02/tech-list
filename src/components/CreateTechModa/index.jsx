@@ -6,6 +6,7 @@ export const CreateTechModal = ({setIsOpen}) => {
   const {addTech} = useDataTechStore()
   const submit = (formData) => {
     addTech(formData)
+    setIsOpen(false); 
   }
 
   return (

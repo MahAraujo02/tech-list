@@ -15,7 +15,7 @@ export const Dashboard = () => {
   }, []);
 
 
-  console.log(user.techs);
+  console.log(techsData);
   return (
     <>
       {loading ? (
