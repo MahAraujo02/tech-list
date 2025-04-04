@@ -1,13 +1,11 @@
 import styled from "styled-components";
+import { flex } from "./shared.jsx";
 
-export const flex = `
-    display: flex;
-    flex-direction: column;
-`;
 
 export const FormBase = styled.form`
   ${flex}
   width: 369px;
+  max-width: 100%;
   height: fit-content;
   justify-content: center;
   align-items: center;
@@ -38,9 +36,6 @@ const Input = styled.input`
     border-color: ${({ theme }) => theme.colors.gray_0}
   }
 `;
-
-
-
 
 
 export const LabelInput = ({ label, name, register, type = "text",rules, ...props }) => (

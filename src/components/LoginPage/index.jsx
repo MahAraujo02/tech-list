@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useDataTechStore } from "../../stores/useDataTechStore";
 import { useNavigate } from "react-router-dom";
-import { AlignForm, ContainerForm} from "../../styles/shared.jsx";
+import { AlignForm, ContainerForm, Logo } from "../../styles/shared.jsx";
 import { FormBase } from "../../styles/form.jsx";
-import { Button } from "../../styles/buttons.jsx";
 import { LabelInput } from "../../styles/form.jsx";
+import { Button } from "../../styles/Buttons.jsx";
 
 export const LoginPage = () => {
   const { loginAuth } = useDataTechStore();
@@ -17,7 +17,9 @@ export const LoginPage = () => {
 
   return (
     <ContainerForm>
-      <img src="./src/assets/logo.svg" alt="" />
+      <Logo>
+        <img src="./src/assets/logo.svg" alt="" />
+      </Logo>
       <AlignForm>
         <h2>Login</h2>
         <FormBase onSubmit={handleSubmit(submit)}>
@@ -28,7 +30,7 @@ export const LoginPage = () => {
             register={register}
           />
 
-          <LabelInput label="Senha" name="password" type="password" />
+          <LabelInput label="Senha" name="password" type="password" register={register}/>
           <Button backgroundColor="primary" type="submit">
             Entrar
           </Button>

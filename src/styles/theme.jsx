@@ -12,6 +12,7 @@ export const theme = {
     sizes: {
         text_0: '18px',
         text_base: '16px',
+        text_base1: '14px',
         text_small: '12px'
     }
 }

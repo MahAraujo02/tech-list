@@ -2,10 +2,9 @@ import { useForm } from "react-hook-form";
 import { useDataTechStore } from "../../stores/useDataTechStore";
 import { useNavigate } from "react-router-dom";
 import { FormBase, LabelInput } from "../../styles/form";
-import { Button } from "../../styles/buttons";
-
-import { ContainerFormRegister } from "./styles";
-import { AlignForm } from "../../styles/shared";
+import { ContainerFormRegister } from "./styles.js";
+import { AlignForm, Logo } from "../../styles/shared.jsx";
+import { ButtonMedium, Button } from "../../styles/Buttons.jsx";
 
 export const RegisterForm = () => {
   const { register, handleSubmit, watch } = useForm();
@@ -19,7 +18,11 @@ export const RegisterForm = () => {
 
   return (
     <ContainerFormRegister>
-      <img src="./src/assets/logo.svg" alt="" />
+      <Logo divLogoStyle="style1">
+        <img src="./src/assets/logo.svg" alt="" />
+        <ButtonMedium onClick={()=> navigate('/login')} >Voltar</ButtonMedium>
+      </Logo>
+
       <AlignForm>
         <div className="title_and_span">
           <h2>Crie sua conta</h2>
@@ -88,16 +91,16 @@ export const RegisterForm = () => {
           <select
             {...register("course_module", { required: "Selecione um módulo" })}
           >
-            <option value="frontend-intro">
+            <option value="Primeiro módulo (Introdução ao Frontend)">
               Primeiro módulo (Introdução ao Frontend)
             </option>
-            <option value="frontend-advanced">
+            <option value="Segundo módulo (Frontend Avançado)">
               Segundo módulo (Frontend Avançado)
             </option>
-            <option value="backend-intro">
+            <option value="Terceiro módulo (Introdução ao Backend)">
               Terceiro módulo (Introdução ao Backend)
             </option>
-            <option value="backend-advanced">
+            <option value="Quarto módulo (Backend Avançado)">
               Quarto módulo (Backend Avançado)
             </option>
           </select>
