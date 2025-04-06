@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { api } from "../services/api";
+import { useAlertStore } from "./useAlertStore";
 
 interface User {
   id: number;
@@ -23,7 +24,10 @@ interface AuthState {
   techsData: ITechs[];
   deleteTech: (techId: string) => Promise<void>;
   updateTech: (dataForm: ITechs, editId: string) => Promise<void>;
+  userLogout: (navigate: (path:string)=> void) => void
 }
+
+
 
 export const useDataTechStore = create<AuthState>((set) => ({
   user: JSON.parse(localStorage.getItem("@USERDATA") || "null"),
@@ -42,13 +46,22 @@ export const useDataTechStore = create<AuthState>((set) => ({
     }
   },
 
+  userLogout: (navigate) => {
+      localStorage.removeItem("@TOKEN")
+      localStorage.removeItem("@USERDATA")
+      set({user: null})
+      navigate('/login')
+  },
+
   registerUser: async (dataForm, navigate) => {
+
+    const {showAlert} = useAlertStore.getState()
     try {
       await api.post("/users", dataForm);
-      console.log("Cadastro efetuado com sucesso!");
-      navigate("/login");
+      showAlert('Conta criada com sucesso!', 'success')
+      setTimeout(() => navigate("/login"), 5000);
     } catch (error) {
-      console.error("Erro ao registrar:", error.response?.data?.message);
+      showAlert( error.response?.data?.message || 'Erro ao registrar', 'error');
       throw error;
     }
   },
