@@ -24,6 +24,7 @@ export const NameAndModule=styled.div`
     }
 
 `
+
 export const AlignNameAndModule =styled.div`
      width: 100%;
      height: 118px;

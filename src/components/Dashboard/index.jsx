@@ -7,7 +7,7 @@ import { AlignNameAndModule, Header, Main, NameAndModule } from "./styles";
 import { ButtonMedium } from "../../styles/Buttons";
 
 export const Dashboard = () => {
-  const { loadData, user, techsData } = useDataTechStore();
+  const { loadData, user, techsData, userLogout } = useDataTechStore();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -21,11 +21,11 @@ export const Dashboard = () => {
       {loading ? (
         <div>carregando</div>
       ) : (
-        <div className="body">
+        <div>
           <Header>
             <Logo divLogoStyle="style2">
               <img src="./src/assets/logo.svg" alt="" />
-              <ButtonMedium>Sair</ButtonMedium>
+              <ButtonMedium onClick={()=>userLogout(navigate)} >Sair</ButtonMedium>
             </Logo>
           </Header>
           <AlignNameAndModule>

@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useDataTechStore } from "../../stores/useDataTechStore";
 import { useNavigate } from "react-router-dom";
-import { FormBase, LabelInput } from "../../styles/form";
+import { FormBase, LabelInput, SelectOption } from "../../styles/form";
 import { ContainerFormRegister } from "./styles.js";
 import { AlignForm, Logo } from "../../styles/shared.jsx";
+import 'react-toastify/dist/ReactToastify.css';
 import { ButtonMedium, Button } from "../../styles/Buttons.jsx";
+import { ToastContainer } from "react-toastify";
 
 export const RegisterForm = () => {
   const { register, handleSubmit, watch } = useForm();
@@ -18,6 +20,14 @@ export const RegisterForm = () => {
 
   return (
     <ContainerFormRegister>
+      <ToastContainer 
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+      />
+
       <Logo divLogoStyle="style1">
         <img src="./src/assets/logo.svg" alt="" />
         <ButtonMedium onClick={()=> navigate('/login')} >Voltar</ButtonMedium>
@@ -83,13 +93,11 @@ export const RegisterForm = () => {
           <LabelInput
             label="Contato"
             placeholder="Opçao de contato"
-            name="contato"
+            name="contact"
             register={register}
           />
 
-          <label>Selecionar Módulo</label>
-          <select
-            {...register("course_module", { required: "Selecione um módulo" })}
+          <SelectOption label="Selecionar Modulo" register={register} name='course_module'
           >
             <option value="Primeiro módulo (Introdução ao Frontend)">
               Primeiro módulo (Introdução ao Frontend)
@@ -103,7 +111,7 @@ export const RegisterForm = () => {
             <option value="Quarto módulo (Backend Avançado)">
               Quarto módulo (Backend Avançado)
             </option>
-          </select>
+          </SelectOption>
 
           <Button backgroundColor="primary" type="submit">
             Cadastrar

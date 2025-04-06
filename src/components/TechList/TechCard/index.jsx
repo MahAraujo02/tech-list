@@ -1,5 +1,7 @@
 import { useDataTechStore } from "../../../stores/useDataTechStore";
 import { TechItem, AlignTechItemText } from "./styes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 export const TechCard = ({ techItem, onEditClick }) => {
   const { deleteTech } = useDataTechStore();
@@ -9,8 +11,21 @@ export const TechCard = ({ techItem, onEditClick }) => {
         <h3>{techItem.title}</h3>
         <div className="actionsButtons">
           <span>{techItem.status}</span>
-          <button onClick={() => deleteTech(techItem.id)}>Excluir</button>
-          <button onClick={() => onEditClick(techItem)}>Editar</button>
+
+          <FontAwesomeIcon
+            className="colorGray"
+            onClick={() => onEditClick(techItem)}
+            icon={faPencil}
+            
+          />
+
+          <FontAwesomeIcon
+            className="colorGray"
+            onClick={() => deleteTech(techItem.id)}
+            icon={faTrashCan}
+          />
+
+         
         </div>
       </AlignTechItemText>
     </TechItem>

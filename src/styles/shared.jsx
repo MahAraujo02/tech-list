@@ -26,7 +26,7 @@ export const AlignForm = styled.div`
   width: 369px;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.gray_3};
-  padding: 2rem 0 2rem 0;
+  padding: 3rem 0 3rem 0;
   h2 {
 
     font-size: ${({ theme }) => theme.sizes.text_0};

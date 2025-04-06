@@ -12,6 +12,7 @@ export const TechItem = styled.div`
   border-radius: 4px;
 `;
 
+
 export const AlignTechItemText = styled.div`
   display: flex;
   flex-direction: row;
@@ -26,10 +27,19 @@ export const AlignTechItemText = styled.div`
     display: flex;
     width: fit-content;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     span {
       font-size: ${({ theme }) => theme.sizes.text_base1};
       color: ${({ theme }) => theme.colors.gray_1};
     }
   }
+
+
+.colorGray{
+  color: ${({ theme }) => theme.colors.gray_0};
+  cursor: pointer;
+}
+
+
+
 `;

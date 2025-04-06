@@ -5,7 +5,7 @@ import { flex } from "../../styles/shared";
 export const ContainerFormRegister =styled.div`
     ${flex}
     gap: 30px;
-    padding: 20px;
+    padding: 50px;
     justify-content: center;
     align-items: center;
     overflow-y: auto;

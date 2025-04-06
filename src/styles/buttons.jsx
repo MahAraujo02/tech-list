@@ -7,8 +7,17 @@ export const Button = styled.button`
     width: 19.9375rem;
     border: 0.0625rem solid transparent   ;
     border-radius: 0.25rem;
+    cursor: pointer;
+    
+    &:hover{
+    background-color: ${({theme}) => theme.colors.primary_hover};
+
+    }
+    
+
 `
 export const ButtonMedium = styled.button`
+    cursor: pointer;
     width: 4.25rem;
     height: 2.5rem;
     border: transparent;

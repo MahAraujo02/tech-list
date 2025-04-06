@@ -3,6 +3,8 @@ import { TechCard } from "./TechCard";
 import { CreateTechModal } from "../CreateTechModa";
 import { EditTechModal } from "../EditTechModal";
 import { ListContainer,DivList,List, ListAlign } from "./styles";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export const TechList = ({ techList }) => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -29,12 +31,12 @@ export const TechList = ({ techList }) => {
       <ListAlign>
         <div className="title_and_button">
           <h3>Tecnologias</h3>
-          <button onClick={() => setIsCreateModalOpen(true)}>
-            Adicionar Tecnologia
-          </button>
+          <FontAwesomeIcon className="buttonStyle"  onClick={() => setIsCreateModalOpen(true)} icon={faPlus} />
         </div>
         {techList.length === 0 ? (
-          <p>Voce ainda nao possui itens na sua lista</p>
+         <DivList divListStyle="style1">
+           <p>Voce ainda nao possui tecnologias na sua lista</p>
+         </DivList>
         ) : (
           <DivList>
             <List>

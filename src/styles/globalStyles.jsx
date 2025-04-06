@@ -4,6 +4,6 @@ import reset from "styled-reset"
 export const GlobalStyles = createGlobalStyle`
     ${reset}
     body{
-        background-color: ${({theme}) => theme.colors.gray_4}
+        background-color: ${({theme}) => theme.colors.gray_4};
     }
 `
